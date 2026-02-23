@@ -1,0 +1,322 @@
+:root {
+  --canary: #f2cb00;
+  --red-ink: #e90035;
+  --frame: rgba(233, 0, 53, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--red-ink);
+  font-family: "Bodoni Moda", "Didot", "Bodoni MT", serif;
+  background: var(--canary);
+}
+
+.site-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: clamp(180px, 20vw, 260px) 1fr;
+}
+
+.brand-rail {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100vh;
+  border-right: 1px solid var(--frame);
+  padding: 3rem 0.55rem 2rem 2.1rem;
+}
+
+.brand-name {
+  display: block;
+  color: var(--red-ink);
+  text-decoration: none;
+  font-size: clamp(1.45rem, 2.1vw, 1.95rem);
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.landing,
+.gallery-page,
+.exhibitions-page {
+  width: min(1040px, calc(100% - 50px));
+  margin: 0;
+  margin-left: 50px;
+  padding: 3rem 0 3.5rem;
+}
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+  padding: 0.4rem 0;
+  background: var(--canary);
+}
+
+.site-nav-link {
+  color: var(--red-ink);
+  text-decoration: none;
+  border: 0;
+  outline: none;
+  padding: 0.22rem 0.38rem;
+  transition: opacity 180ms ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.site-nav-icon {
+  display: block;
+  height: clamp(56px, 7.2vw, 80px);
+  width: auto;
+}
+
+.site-nav-link:hover,
+.site-nav-link:focus-visible,
+.site-nav-link.is-active {
+  opacity: 0.88;
+}
+
+.gallery-head h1,
+.exhibitions-head h1 {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  font-size: clamp(2.3rem, 7vw, 5.3rem);
+  text-transform: uppercase;
+}
+
+.series-nav {
+  margin-top: 0.2rem;
+  margin-left: 45px;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.series-nav a {
+  color: var(--red-ink);
+  text-decoration: none;
+  width: fit-content;
+  font-size: clamp(1.755rem, 4.68vw, 2.86rem);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  line-height: 1.02;
+  text-transform: uppercase;
+  border-bottom: 2px solid transparent;
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.series-nav a:hover,
+.series-nav a:focus-visible {
+  border-color: var(--red-ink);
+  transform: translateX(4px);
+}
+
+.gallery-head {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 66.666% 33.333%;
+  align-items: center;
+  column-gap: 0;
+  row-gap: 0;
+  margin-bottom: 2.1rem;
+  min-height: 130px;
+}
+
+.back-link {
+  color: var(--red-ink);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-bottom: 1px solid transparent;
+}
+
+.back-link:hover,
+.back-link:focus-visible {
+  border-color: var(--red-ink);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 70px;
+}
+
+.gallery-item {
+  display: block;
+  position: relative;
+  min-height: 0;
+  overflow: visible;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border: 1px solid var(--frame);
+  background: rgba(255, 232, 77, 0.45);
+}
+
+.gallery-grid.is-no-seconds .gallery-item img {
+  width: calc(100% + 50px);
+  max-width: none;
+  margin-left: -25px;
+}
+
+.placeholder-tag {
+  color: var(--red-ink);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0 0.8rem;
+}
+
+.empty-note {
+  margin: 0;
+  color: var(--red-ink);
+  font-size: 0.95rem;
+}
+
+.exhibitions-head {
+  margin-bottom: 1.4rem;
+}
+
+.exhibitions-subtitle {
+  margin: 0.4rem 0 0;
+  font-size: 1rem;
+}
+
+.exhibitions-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--frame);
+}
+
+.exhibitions-item {
+  padding: 1rem 0.2rem;
+  border-bottom: 1px solid var(--frame);
+  font-size: 1.02rem;
+}
+
+@media (max-width: 900px) {
+  .site-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-rail {
+    border-right: 0;
+    border-bottom: 1px solid var(--frame);
+    padding: 1.25rem min(5vw, 2rem);
+    position: static;
+    height: auto;
+  }
+
+  .landing,
+  .gallery-page,
+  .exhibitions-page {
+    width: min(1040px, 92vw);
+    padding-top: 2rem;
+  }
+
+  .brand-logo {
+    width: clamp(110px, 32vw, 190px);
+    max-height: 22vh;
+  }
+}
+
+@media (max-width: 760px) {
+  .gallery-head {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    margin-bottom: 1.6rem;
+  }
+
+  .site-nav {
+    margin-bottom: 1.7rem;
+  }
+}
+
+.brand-logo {
+  width: clamp(120px, 18vw, 220px);
+  max-width: 100%;
+  max-height: calc(100vh - 6rem);
+  height: auto;
+  display: block;
+}
+
+.brand-fallback {
+  display: none;
+  font-size: clamp(1.45rem, 2.1vw, 1.95rem);
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.image-caption {
+  position: static;
+  margin: 12px 0 0;
+  max-width: 100%;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  text-align: left;
+}
+
+.gallery-head #seriesTitle {
+  margin-left: 20px;
+}
+
+.series-pricing {
+  min-width: 0;
+  max-width: 100%;
+  text-align: left;
+  justify-self: stretch;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.series-pricing p {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.22;
+  font-weight: 500;
+}
+
+@media (max-width: 760px) {
+  .gallery-head {
+    display: block;
+  }
+
+  .series-pricing {
+    min-width: 0;
+    max-width: 100%;
+    margin-top: 0.5rem;
+    justify-self: auto;
+  }
+}
+
+.series-pricing.is-candy-goldsworthy {
+  margin-left: 50px;
+}
+
+@media (max-width: 760px) {
+  .series-pricing.is-candy-goldsworthy {
+    margin-left: 0;
+  }
+}
