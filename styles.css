@@ -263,7 +263,9 @@ body {
   font-size: clamp(1.45rem, 2.1vw, 1.95rem);
   letter-spacing: 0.02em;
   font-weight: 600;
-  line-height: 1.1;
+  line-height: 1.02;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .image-caption {
@@ -318,5 +320,687 @@ body {
 @media (max-width: 760px) {
   .series-pricing.is-candy-goldsworthy {
     margin-left: 0;
+  }
+}
+
+/* Mobile cleanup pass: preserve desktop, normalize phone layout */
+@media (max-width: 760px) {
+  .landing,
+  .gallery-page,
+  .exhibitions-page {
+    width: 92vw;
+    margin: 0 auto;
+    margin-left: 0;
+    padding: 1.4rem 0 2rem;
+  }
+
+  .site-nav {
+    gap: 0.5rem;
+    margin-bottom: 1.1rem;
+    padding: 0.2rem 0;
+  }
+
+  .site-nav-icon {
+    height: clamp(30px, 9vw, 42px);
+  }
+
+  .series-nav {
+    margin-left: 0;
+    gap: 0.5rem;
+  }
+
+  .series-nav a {
+    font-size: clamp(1.1rem, 6vw, 1.7rem);
+  }
+
+  .gallery-head {
+    display: block;
+    min-height: 0;
+    margin-bottom: 1rem;
+  }
+
+  .gallery-head #seriesTitle {
+    margin-left: 0;
+  }
+
+  .series-pricing,
+  .series-pricing.is-candy-goldsworthy {
+    margin-left: 0;
+    margin-top: 0.35rem;
+    max-width: 100%;
+  }
+
+  .series-pricing p {
+    font-size: 15px;
+    line-height: 1.2;
+  }
+
+  .gallery-grid {
+    gap: 28px;
+  }
+
+  .gallery-grid.is-no-seconds .gallery-item img {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .image-caption {
+    margin-top: 10px;
+    font-size: 0.92rem;
+  }
+}
+
+/* Mobile logo compact mode */
+@media (max-width: 760px) {
+  .brand-rail {
+    padding: 0.6rem 1rem;
+  }
+
+  .brand-name {
+    display: flex;
+    justify-content: center;
+  }
+
+  .brand-logo {
+    width: auto;
+    max-width: 68vw;
+    max-height: 120px;
+  }
+}
+
+/* Broader responsive fallback so compact layout triggers on larger mobile/tablet viewports */
+@media (max-width: 1100px) {
+  .site-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-rail {
+    position: static;
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--frame);
+    padding: 0.6rem 1rem;
+  }
+
+  .brand-name {
+    display: flex;
+    justify-content: center;
+  }
+
+  .brand-logo {
+    width: auto !important;
+    max-width: 68vw !important;
+    max-height: 120px !important;
+  }
+
+  .landing,
+  .gallery-page,
+  .exhibitions-page {
+    width: 92vw;
+    margin: 0 auto;
+    margin-left: 0;
+    padding: 1.4rem 0 2rem;
+  }
+}
+
+/* Global top-header layout override */
+.site-shell {
+  grid-template-columns: 1fr;
+}
+
+.brand-rail {
+  position: static;
+  top: auto;
+  align-self: auto;
+  height: auto;
+  border-right: 0;
+  border-bottom: 1px solid var(--frame);
+  padding: 1.1rem 0.8rem 0.6rem;
+}
+
+.brand-name {
+  display: flex;
+  justify-content: center;
+}
+
+.brand-logo {
+  width: min(860px, 78vw) !important;
+  max-width: 100%;
+  max-height: none !important;
+  height: auto;
+}
+
+.landing,
+.gallery-page,
+.exhibitions-page {
+  width: min(1200px, 94vw);
+  margin: 0 auto;
+  margin-left: 0;
+  padding: 1rem 0 2.4rem;
+}
+
+.site-nav {
+  position: static;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 1.4rem;
+  padding: 0.2rem 0;
+  background: transparent;
+}
+
+.site-nav-icon {
+  height: clamp(34px, 4vw, 62px);
+}
+
+.series-nav {
+  margin-left: 0;
+}
+
+@media (max-width: 760px) {
+  .brand-rail {
+    padding: 0.8rem 0.7rem 0.4rem;
+  }
+
+  .brand-logo {
+    width: min(94vw, 620px) !important;
+  }
+
+  .site-nav {
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .site-nav-icon {
+    height: clamp(28px, 8vw, 44px);
+  }
+}
+
+/* Hard override: brand/logo across top, never left rail */
+.site-shell {
+  display: block !important;
+}
+
+.brand-rail {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  width: 100% !important;
+  height: auto !important;
+  border-right: 0 !important;
+  border-bottom: 1px solid var(--frame) !important;
+  padding: 1rem 0.8rem 0.6rem !important;
+}
+
+.brand-name {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.brand-logo {
+  display: block !important;
+  width: min(1200px, 96vw) !important;
+  max-width: 100% !important;
+  max-height: none !important;
+  margin: 0 auto !important;
+}
+
+.landing,
+.gallery-page,
+.exhibitions-page {
+  margin-left: 0 !important;
+}
+
+/* Final wordmark override: use HH-Fluid text, exactly two lines */
+@font-face {
+  font-family: "HH Fluid";
+  src: url("fonts/HH-Fluid.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+.brand-logo {
+  display: none !important;
+}
+
+.brand-name {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.brand-fallback {
+  display: block !important;
+  font-family: "HH Fluid", "Bodoni Moda", serif !important;
+  font-weight: 400 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 0.9;
+  white-space: normal;
+  text-align: center;
+  font-size: clamp(52px, 10vw, 140px);
+}
+
+@media (max-width: 760px) {
+  .brand-fallback {
+    font-size: clamp(44px, 16vw, 88px);
+    line-height: 0.92;
+  }
+}
+
+/* Force uppercase for name mark */
+.brand-name,
+.brand-fallback {
+  text-transform: uppercase !important;
+}
+
+/* Final responsive split: desktop left rail, mobile top header */
+@media (min-width: 761px) {
+  .site-shell {
+    display: grid !important;
+    grid-template-columns: clamp(180px, 20vw, 260px) 1fr !important;
+    min-height: 100vh;
+  }
+
+  .brand-rail {
+    position: sticky !important;
+    top: 0 !important;
+    align-self: start !important;
+    width: auto !important;
+    height: 100vh !important;
+    border-right: 1px solid var(--frame) !important;
+    border-bottom: 0 !important;
+    padding: 2.2rem 0.7rem 1.5rem 1.1rem !important;
+  }
+
+  .brand-name {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .brand-fallback {
+    display: block !important;
+    font-size: clamp(44px, 5vw, 90px) !important;
+    line-height: 0.92 !important;
+    white-space: normal !important;
+  }
+
+  .landing,
+  .gallery-page,
+  .exhibitions-page {
+    width: min(1040px, calc(100% - 50px)) !important;
+    margin: 0 !important;
+    margin-left: 50px !important;
+    padding: 3rem 0 3.5rem !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-shell {
+    display: block !important;
+  }
+
+  .brand-rail {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--frame) !important;
+    padding: 0.8rem 0.8rem 0.5rem !important;
+  }
+
+  .brand-name {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .brand-fallback {
+    font-size: clamp(44px, 16vw, 88px) !important;
+    line-height: 0.92 !important;
+    text-align: center !important;
+  }
+
+  .landing,
+  .gallery-page,
+  .exhibitions-page {
+    margin-left: 0 !important;
+    width: min(1200px, 94vw) !important;
+    margin-right: auto !important;
+  }
+}
+
+/* Desktop logo treatment: vertical wordmark filling left column */
+@media (min-width: 761px) {
+  .brand-rail {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: hidden;
+  }
+
+  .brand-name {
+    height: 90vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .brand-fallback {
+    writing-mode: vertical-rl !important;
+    text-orientation: upright !important;
+    white-space: nowrap !important;
+    line-height: 1 !important;
+    letter-spacing: 0.02em !important;
+    font-size: min(5.6vh, 72px) !important;
+  }
+
+  .brand-fallback br {
+    display: none;
+  }
+}
+
+/* Exact desktop logo layout: two vertical columns like reference */
+@media (min-width: 761px) {
+  .brand-rail {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: hidden;
+  }
+
+  .brand-name {
+    height: 90vh !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .brand-fallback {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    gap: clamp(18px, 2.4vw, 34px) !important;
+    width: 100% !important;
+    height: 90% !important;
+    text-transform: uppercase !important;
+  }
+
+  .brand-word {
+    writing-mode: vertical-rl !important;
+    text-orientation: upright !important;
+    white-space: nowrap !important;
+    line-height: 1 !important;
+    letter-spacing: 0.01em !important;
+    font-family: "HH Fluid", "Bodoni Moda", serif !important;
+    font-size: min(5.2vh, 68px) !important;
+  }
+
+  .brand-word-first {
+    align-self: center !important;
+  }
+
+  .brand-word-second {
+    align-self: flex-start !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .brand-fallback {
+    display: block !important;
+    height: auto !important;
+  }
+
+  .brand-word {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    display: inline !important;
+    font-size: clamp(44px, 16vw, 88px) !important;
+  }
+
+  .brand-word-first::after {
+    content: "\\A";
+    white-space: pre;
+  }
+}
+
+/* Fine-tune desktop vertical wordmark spacing/offset */
+@media (min-width: 761px) {
+  .brand-fallback {
+    gap: clamp(14px, 1.9vw, 24px) !important;
+    align-items: flex-start !important;
+    height: 92% !important;
+  }
+
+  .brand-word {
+    font-size: min(5.35vh, 70px) !important;
+  }
+
+  .brand-word-first {
+    margin-top: 22% !important;
+  }
+
+  .brand-word-second {
+    margin-top: 0 !important;
+  }
+}
+
+/* Final correction: desktop offsets + mobile fit */
+@media (min-width: 761px) {
+  .brand-rail {
+    overflow: hidden !important;
+  }
+
+  .brand-name {
+    height: 92vh !important;
+  }
+
+  .brand-fallback {
+    height: 92% !important;
+    gap: clamp(14px, 1.9vw, 24px) !important;
+    align-items: flex-start !important;
+  }
+
+  /* Left column word: centered part-way down */
+  .brand-word-first {
+    margin-top: 36% !important;
+  }
+
+  /* Right column word: starts at top */
+  .brand-word-second {
+    margin-top: 0 !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .brand-name {
+    width: 100% !important;
+    padding: 0 8px !important;
+  }
+
+  .brand-fallback {
+    width: min(94vw, 620px) !important;
+    max-width: 94vw !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    line-height: 0.9 !important;
+  }
+
+  .brand-word {
+    display: block !important;
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    font-size: clamp(30px, 12vw, 62px) !important;
+    max-width: 100% !important;
+  }
+
+  .brand-word-first::after {
+    content: none !important;
+  }
+}
+
+/* Hard lock: desktop name positions + mobile width safety */
+@media (min-width: 761px) {
+  .brand-rail {
+    overflow: hidden !important;
+  }
+
+  .brand-name {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    height: 90vh !important;
+    margin: 0 !important;
+  }
+
+  .brand-fallback {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .brand-word {
+    position: absolute !important;
+    writing-mode: vertical-rl !important;
+    text-orientation: upright !important;
+    white-space: nowrap !important;
+    line-height: 1 !important;
+    letter-spacing: 0.005em !important;
+    font-family: "HH Fluid", "Bodoni Moda", serif !important;
+    font-size: clamp(40px, 3.9vw, 62px) !important;
+  }
+
+  /* HARGREAVES starts at top on the right side */
+  .brand-word-second {
+    top: 0 !important;
+    right: 6px !important;
+    margin: 0 !important;
+  }
+
+  /* HENRY sits centered/lower on the left side */
+  .brand-word-first {
+    top: 54% !important;
+    left: 6px !important;
+    transform: translateY(-50%) !important;
+    margin: 0 !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .brand-name {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 10px !important;
+  }
+
+  .brand-fallback {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    overflow: hidden !important;
+  }
+
+  .brand-word {
+    display: block !important;
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    position: static !important;
+    transform: none !important;
+    font-size: clamp(24px, 10.2vw, 50px) !important;
+    line-height: 0.9 !important;
+    max-width: 100% !important;
+  }
+}
+
+/* Desktop match pass: reference-aligned rail + top categories */
+@media (min-width: 761px) {
+  .site-shell {
+    grid-template-columns: 260px 1fr !important;
+  }
+
+  .brand-rail {
+    padding: 1.6rem 0.35rem 1.2rem 0.35rem !important;
+  }
+
+  .brand-name {
+    height: 92vh !important;
+  }
+
+  .brand-word {
+    font-size: clamp(44px, 4.1vw, 66px) !important;
+    letter-spacing: 0.005em !important;
+  }
+
+  /* HARGREAVES: top, close to divider */
+  .brand-word-second {
+    top: 0 !important;
+    right: 3px !important;
+  }
+
+  /* HENRY: lower, left side */
+  .brand-word-first {
+    top: 55% !important;
+    left: 10px !important;
+    transform: translateY(-50%) !important;
+  }
+
+  .landing,
+  .gallery-page,
+  .exhibitions-page {
+    margin-left: 34px !important;
+    width: min(1060px, calc(100% - 34px)) !important;
+    padding-top: 2.2rem !important;
+  }
+
+  .site-nav {
+    justify-content: flex-start !important;
+    gap: clamp(1.6rem, 4.2vw, 4.2rem) !important;
+    margin-bottom: 2.1rem !important;
+    padding-top: 0 !important;
+  }
+
+  .site-nav-link {
+    padding: 0 !important;
+  }
+
+  .site-nav-icon {
+    height: clamp(50px, 5.3vw, 72px) !important;
+  }
+
+  .series-nav {
+    margin-left: 0 !important;
+  }
+}
+
+/* Requested tweak: Henry top + tight side offsets */
+@media (min-width: 761px) {
+  .brand-word-second {
+    right: 3px !important;
+  }
+
+  .brand-word-first {
+    top: 25% !important;
+    left: 3px !important;
+    transform: translateY(-50%) !important;
+  }
+}
+
+/* Requested tweak: 3px space between HENRY and HARGREAVES */
+@media (min-width: 761px) {
+  .brand-word-second {
+    right: 3px !important;
+  }
+
+  .brand-word-first {
+    left: auto !important;
+    right: calc(1em + 6px) !important;
+    top: 25% !important;
+    transform: translateY(-50%) !important;
   }
 }
